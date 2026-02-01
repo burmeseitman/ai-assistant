@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  ollama-engine:
+    image: ollama/ollama:latest
+    container_name: ollama-engine
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./ollama_data:/root/.ollama
+    networks:
+      - trading-net
+    #    deploy:
+    #      resources:
+    #        reservations:
+    #          devices:
+    #            - driver: nvidia
+    #              count: all
+    #              capabilities: [gpu]
+    # Keep the container running
+    restart: always
+
+  trading-bot:
+    build: .
+    container_name: trading-bot
+    depends_on:
+      - ollama-engine
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - OLLAMA_URL=http://ollama-engine:11434
+    networks:
+      - trading-net
+    restart: always
+
+networks:
+  trading-net:
+    driver: bridge
