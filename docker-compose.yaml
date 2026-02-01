@@ -10,6 +10,7 @@ services:
       - ./ollama_data:/root/.ollama
     networks:
       - trading-net
+    entrypoint: [ "/bin/sh", "-c", "ollama serve & sleep 10 && ollama pull qwen3:latest && wait" ]
     #    deploy:
     #      resources:
     #        reservations:

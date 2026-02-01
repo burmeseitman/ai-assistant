@@ -60,8 +60,8 @@ def get_ai_analysis(news_items):
     Sends news to Ollama for sentiment analysis.
     """
     logger.info("Sending news to AI Engine for analysis...")
-    system_prompt = "You are a gold market analyst. Give a sentiment score (Bullish/Bearish) for each news item provided. Be concise."
-    user_content = "Please analyze the following news headlines:\n" + "\n".join([f"- {item}" for item in news_items])
+    system_prompt = "You are a gold market analyst. Give a sentiment score (Bullish 🚀/Bearish 📉) for each news item provided. Use relevant emojis to make the report attractive. Be concise."
+    user_content = "Please analyze the following news headlines and provide a sentiment breakdown:\n" + "\n".join([f"- {item}" for item in news_items])
     
     return ask_ollama(user_content, system_prompt)
 
@@ -84,7 +84,7 @@ def analyze_market(message):
     analysis = get_ai_analysis(news)
     
     # 4. Final Reply
-    reply = f"📑 *Gold Market Analysis*\n\n*Top News:*\n{news_summary}\n\n*AI Sentiment Analysis:*\n{analysis}"
+    reply = f"� *Gold Market Sentiment Report* 📊\n\n*Latest Headlines:*\n{news_summary}\n\n*AI Deep Analysis:* 🤖\n{analysis}"
     bot.send_message(chat_id, reply, parse_mode="Markdown")
 
 @bot.message_handler(func=lambda message: True)

@@ -27,11 +27,11 @@ docker compose -f docker-compose.yaml up -d --build
 ```
 
 ### 3. Initialize the AI Model
-Once the containers are running, pull the `qwen2.5` model inside the Ollama container:
-
+The environment is configured to automatically pull the `qwen3` model on the first startup. You can monitor the progress with:
 ```bash
-docker exec -it ollama-engine ollama pull qwen2.5
+docker logs -f ollama-engine
 ```
+Once the pull is complete, the bot will be ready to respond.
 
 ### 4. Usage
 Open Telegram and find your bot.
