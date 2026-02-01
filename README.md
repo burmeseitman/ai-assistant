@@ -18,7 +18,9 @@ A multi-container Docker environment featuring a Gold Market News Scraper, a Tel
 Create a `.env` file in the root directory based on `.env.example`:
 ```env
 TELEGRAM_BOT_TOKEN=your_token_from_botfather
+MODEL_NAME=qwen3:latest
 ```
+*Note: You can change `MODEL_NAME` to any model supported by Ollama.*
 
 ### 2. Start the Containers
 Run the following command to build and start the environment:

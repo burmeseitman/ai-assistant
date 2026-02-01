@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 # Environment Variables
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://ollama-engine:11434")
-MODEL_NAME = "qwen3:latest"
+MODEL_NAME = os.getenv("MODEL_NAME", "qwen3:latest")
 
 bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
 
