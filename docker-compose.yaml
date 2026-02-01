@@ -21,15 +21,16 @@ services:
     # Keep the container running
     restart: always
 
-  trading-bot:
+  assistant-bot:
     build: .
-    container_name: trading-bot
+    container_name: assistant-bot
     depends_on:
       - ollama-engine
     environment:
       - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
       - OLLAMA_URL=http://ollama-engine:11434
       - MODEL_NAME=${MODEL_NAME:-qwen3:latest}
+      - NEWS_URL=${NEWS_URL:-https://goldbroker.com/news.rss}
     networks:
       - trading-net
     restart: always

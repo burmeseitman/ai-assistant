@@ -14,6 +14,7 @@ logger = logging.getLogger(__name__)
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://ollama-engine:11434")
 MODEL_NAME = os.getenv("MODEL_NAME", "qwen3:latest")
+NEWS_URL = os.getenv("NEWS_URL", "https://goldbroker.com/news.rss")
 
 bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
 
@@ -50,8 +51,8 @@ def fetch_gold_news():
     """
     Fetches gold news headlines from GoldBroker RSS feed.
     """
-    logger.info("Fetching gold news from GoldBroker...")
-    url = "https://goldbroker.com/news.rss"
+    logger.info(f"Fetching gold news from {NEWS_URL}...")
+    url = NEWS_URL
     try:
         feed = feedparser.parse(url)
         

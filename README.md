@@ -4,13 +4,13 @@ A multi-container Docker environment featuring a Gold Market News Scraper, a Tel
 
 ## Project Structure
 - `ollama-engine`: Container running Ollama to serve the LLM.
-- `trading-bot`: Python application that handles news scraping, Telegram bot interaction, and AI chat.
+- `assistant-bot`: Python application that handles news scraping, Telegram bot interaction, and AI chat.
 
 ## Features
-- **RSS News Scraping**: Fetches live gold news from `GoldBroker.com`.
-- **Market Analysis**: Use `/analyze` to get automated sentiment scores (Bullish/Bearish) for the latest news.
+- **RSS News Scraping**: Fetches live gold news from a customizable RSS feed (default: `GoldBroker.com`).
+- **Market Analysis**: Use `/analyze` to get automated sentiment scores (Bullish 🚀/Bearish 📉) for the latest news.
 - **Free Chat**: Type any message to have a professional conversation with the AI gold analyst.
-- **Qwen 2.5 Support**: Powered by the latest Qwen architecture for high-quality financial insights.
+- **Qwen 3 Support**: Powered by the latest Qwen architecture for high-quality financial insights.
 
 ## Setup Instructions
 
@@ -19,8 +19,9 @@ Create a `.env` file in the root directory based on `.env.example`:
 ```env
 TELEGRAM_BOT_TOKEN=your_token_from_botfather
 MODEL_NAME=qwen3:latest
+NEWS_URL=https://goldbroker.com/news.rss
 ```
-*Note: You can change `MODEL_NAME` to any model supported by Ollama.*
+*Note: You can change `MODEL_NAME` to any model supported by Ollama and `NEWS_URL` to any valid RSS feed.*
 
 ### 2. Start the Containers
 Run the following command to build and start the environment:
