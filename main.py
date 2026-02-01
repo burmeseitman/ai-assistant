@@ -4,6 +4,7 @@ import requests
 import json
 import logging
 import feedparser
+import re
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -15,6 +16,35 @@ OLLAMA_URL = os.getenv("OLLAMA_URL", "http://ollama-engine:11434")
 MODEL_NAME = os.getenv("MODEL_NAME", "qwen3:latest")
 
 bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
+
+def load_prompts():
+    """
+    Parses system-prompts.md and returns a dictionary of prompts.
+    """
+    prompts = {
+        "analysis": "You are a gold market analyst.",
+        "chat": "You are a helpful assistant."
+    }
+    try:
+        if os.path.exists("system-prompts.md"):
+            with open("system-prompts.md", "r", encoding="utf-8") as f:
+                content = f.read()
+                
+            analysis_match = re.search(r"## Analysis Prompt\n(.*?)(?=\n##|$)", content, re.DOTALL)
+            chat_match = re.search(r"## Chat Prompt\n(.*?)(?=\n##|$)", content, re.DOTALL)
+            
+            if analysis_match:
+                prompts["analysis"] = analysis_match.group(1).strip()
+            if chat_match:
+                prompts["chat"] = chat_match.group(1).strip()
+                
+            logger.info("System prompts loaded from system-prompts.md")
+    except Exception as e:
+        logger.error(f"Error loading prompts: {e}")
+    return prompts
+
+# Initial load
+SYSTEM_PROMPTS = load_prompts()
 
 def fetch_gold_news():
     """
@@ -60,7 +90,7 @@ def get_ai_analysis(news_items):
     Sends news to Ollama for sentiment analysis.
     """
     logger.info("Sending news to AI Engine for analysis...")
-    system_prompt = "You are a gold market analyst. Give a sentiment score (Bullish 🚀/Bearish 📉) for each news item provided. Use relevant emojis to make the report attractive. Be concise."
+    system_prompt = SYSTEM_PROMPTS.get("analysis")
     user_content = "Please analyze the following news headlines and provide a sentiment breakdown:\n" + "\n".join([f"- {item}" for item in news_items])
     
     return ask_ollama(user_content, system_prompt)
@@ -100,8 +130,8 @@ def handle_chat(message):
     
     logger.info(f"User is chatting: {user_input[:50]}...")
     
-    # Use a persistent personality for free chat
-    system_prompt = "You are a professional gold market analyst and financial assistant. You are helpful, precise, and professional."
+    # Use a persistent personality from prompts.md
+    system_prompt = SYSTEM_PROMPTS.get("chat")
     
     response = ask_ollama(user_input, system_prompt)
     bot.reply_to(message, response)
