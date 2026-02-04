@@ -45,3 +45,6 @@ Open Telegram and find your bot.
 ## Requirements
 - Docker and Docker Compose installed.
 - CPU operation by default (GPU support commented out in `docker-compose.yaml`).
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
