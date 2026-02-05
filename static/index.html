@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal AI Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Login Page -->
+        <div id="login-page">
+            <img src="logo.png" alt="AI Assistant Logo" class="login-logo">
+            <h1 class="title">Personal AI Assistant</h1>
+            <p class="subtitle">Please login to continue</p>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                </div>
+                <button type="submit" id="login-btn">Login</button>
+            </form>
+            <p id="login-error" class="error hidden" style="margin-top: 1rem; color: #ef4444;"></p>
+        </div>
+
+        <!-- Main Page -->
+        <div id="main-page" class="hidden">
+            <header>
+                <div class="header-brand">
+                    <img src="logo.png" alt="Logo" class="header-logo">
+                    <h2 style="font-size: 1.25rem;">Personal AI Assistant</h2>
+                </div>
+                <nav class="nav-links">
+                    <span class="nav-item active" data-page="chat">Chat</span>
+                    <span class="nav-item" data-page="settings">Settings</span>
+                    <span class="nav-item" id="logout-btn">Logout</span>
+                </nav>
+            </header>
+
+            <!-- Chat Tab -->
+            <div id="chat-tab" class="tab-content">
+                <div id="bot-status-alert" class="status-alert hidden">
+                    <span class="icon">⚠️</span>
+                    <span class="message">Telegram Bot is offline. Please check your token in settings.</span>
+                </div>
+                <div id="chat-container">
+                    <div id="messages">
+                        <div class="message ai">Hello! I am your Personal AI Assistant. How can I help you today? You
+                            can ask me for Gold price predictions or anything else!</div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="chat-input" placeholder="Type your message here...">
+                        <button id="send-btn">Send</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div id="settings-tab" class="tab-content hidden">
+                <div id="settings-page">
+                    <h3 style="margin-bottom: 1.5rem;">Configuration</h3>
+
+                    <div class="settings-group">
+                        <div class="settings-row">
+                            <div>
+                                <h4 style="margin-bottom: 0.25rem;">AI Model Mode</h4>
+                                <p style="font-size: 0.875rem; color: var(--text-secondary);">Choose between Local
+                                    Ollama or External API</p>
+                            </div>
+                            <select id="ai-mode-select">
+                                <option value="local">Local Model (Ollama)</option>
+                                <option value="api">API External</option>
+                            </select>
+                        </div>
+
+                        <div id="api-key-container" class="settings-row hidden">
+                            <div>
+                                <h4 style="margin-bottom: 0.25rem;">API Key</h4>
+                                <p style="font-size: 0.875rem; color: var(--text-secondary);">Enter your AI service API
+                                    key</p>
+                            </div>
+                            <input type="password" id="api-key-input" placeholder="sk-..." style="width: 250px;">
+                        </div>
+
+                        <div class="settings-row"
+                            style="border-top: 1px solid var(--border-color, #334155); padding-top: 1.5rem; margin-top: 1.5rem;">
+                            <div>
+                                <h4 style="margin-bottom: 0.25rem;">Telegram Bot Token</h4>
+                                <p style="font-size: 0.875rem; color: var(--text-secondary);">Used for the Telegram bot
+                                    interface</p>
+                                <div id="bot-status-badge" class="status-badge offline">Offline</div>
+                            </div>
+                            <input type="text" id="telegram-token-input" placeholder="Enter Bot Token"
+                                style="width: 250px;">
+                        </div>
+
+                        <button id="save-settings-btn" style="width: 100%; margin-top: 1rem;">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

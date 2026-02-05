@@ -1,3 +1,6 @@
 pyTelegramBotAPI
 requests
 feedparser
+fastapi
+uvicorn
+python-multipart

@@ -35,6 +35,22 @@ services:
       - trading-net
     restart: always
 
+  assistant-webui:
+    build: .
+    container_name: assistant-webui
+    command: python server.py
+    ports:
+      - "8000:8000"
+    depends_on:
+      - ollama-engine
+    environment:
+      - OLLAMA_URL=http://ollama-engine:11434
+      - MODEL_NAME=${MODEL_NAME:-qwen3:latest}
+      - NEWS_URL=${NEWS_URL:-https://goldbroker.com/news.rss}
+    networks:
+      - trading-net
+    restart: always
+
 networks:
   trading-net:
     driver: bridge
