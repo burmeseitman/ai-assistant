@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <defs>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fce7f3"/>
+      <stop offset="50%" style="stop-color:#fbcfe8"/>
+      <stop offset="100%" style="stop-color:#f9a8d4"/>
+    </linearGradient>
+    
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#334155"/>
+    </linearGradient>
+    
+    <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#0284c7"/>
+    </linearGradient>
+    
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e0f2fe"/>
+      <stop offset="100%" style="stop-color:#bae6fd"/>
+    </linearGradient>
+    
+    <radialGradient id="eyeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#22d3ee"/>
+      <stop offset="100%" style="stop-color:#0891b2"/>
+    </radialGradient>
+    
+    <linearGradient id="collarGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#e0f2fe"/>
+    </linearGradient>
+    
+    <filter id="softShadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="15" flood-color="#0891b2" flood-opacity="0.2"/>
+    </filter>
+    
+    <filter id="hairShadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <circle cx="200" cy="240" r="200" fill="url(#bgGrad)"/>
+  
+  <!-- Soft rays -->
+  <g opacity="0.3">
+    <line x1="200" y1="40" x2="200" y2="100" stroke="#0ea5e9" stroke-width="40" stroke-linecap="round" opacity="0.3"/>
+    <line x1="100" y1="100" x2="60" y2="150" stroke="#0ea5e9" stroke-width="30" stroke-linecap="round" opacity="0.2"/>
+    <line x1="300" y1="100" x2="340" y2="150" stroke="#0ea5e9" stroke-width="30" stroke-linecap="round" opacity="0.2"/>
+  </g>
+  
+  <!-- Body/Shoulders -->
+  <path d="M50 500 Q50 380 120 340 Q200 300 280 340 Q350 380 350 500 Z" 
+        fill="url(#shirtGrad)" filter="url(#softShadow)"/>
+  
+  <!-- Neck -->
+  <path d="M165 290 L165 350 Q200 370 235 350 L235 290" fill="#fce7f3"/>
+  <path d="M165 300 Q200 320 235 300" fill="none" stroke="#f9a8d4" stroke-width="3" opacity="0.5"/>
+  
+  <!-- Shirt collar -->
+  <path d="M140 340 Q200 390 260 340 Q230 360 200 355 Q170 360 140 340" fill="url(#collarGrad)"/>
+  
+  <!-- Tie suggestion -->
+  <path d="M190 345 L200 400 L210 345" fill="#0284c7"/>
+  <path d="M190 345 L200 340 L210 345" fill="#0ea5e9"/>
+  
+  <!-- Head -->
+  <ellipse cx="200" cy="200" rx="95" ry="115" fill="url(#skinGrad)"/>
+  
+  <!-- Face shadow -->
+  <ellipse cx="200" cy="280" rx="80" ry="40" fill="#f9a8d4" opacity="0.2"/>
+  
+  <!-- Hair - styled professionally -->
+  <path d="M105 180 Q100 100 160 70 Q200 50 240 70 Q300 100 295 180 Q290 140 240 120 Q200 105 160 120 Q110 140 105 180" 
+        fill="url(#hairGrad)" filter="url(#hairShadow)"/>
+  
+  <!-- Hair detail -->
+  <path d="M140 90 Q180 65 220 80 Q260 95 280 130" fill="none" stroke="#475569" stroke-width="2" opacity="0.3"/>
+  <path d="M150 100 Q190 80 230 90" fill="none" stroke="#475569" stroke-width="1.5" opacity="0.2"/>
+  
+  <!-- Side hair -->
+  <path d="M105 180 Q95 200 100 240 Q102 220 108 200" fill="url(#hairGrad)"/>
+  <path d="M295 180 Q305 200 300 240 Q298 220 292 200" fill="url(#hairGrad)"/>
+  
+  <!-- Ears -->
+  <ellipse cx="105" cy="210" rx="12" ry="20" fill="#fce7f3"/>
+  <ellipse cx="295" cy="210" rx="12" ry="20" fill="#fce7f3"/>
+  <ellipse cx="105" cy="210" rx="6" ry="12" fill="#fbcfe8"/>
+  <ellipse cx="295" cy="210" rx="6" ry="12" fill="#fbcfe8"/>
+  
+  <!-- Eyebrows -->
+  <path d="M135 165 Q160 155 185 165" fill="none" stroke="#1e293b" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M215 165 Q240 155 265 165" fill="none" stroke="#1e293b" stroke-width="3.5" stroke-linecap="round"/>
+  
+  <!-- Eyes - AI tech enhanced but natural -->
+  <ellipse cx="160" cy="200" rx="26" ry="20" fill="white"/>
+  <ellipse cx="240" cy="200" rx="26" ry="20" fill="white"/>
+  
+  <!-- Eye whites detail -->
+  <ellipse cx="152" cy="192" rx="12" ry="10" fill="rgba(255,255,255,0.7)"/>
+  <ellipse cx="232" cy="192" rx="12" ry="10" fill="rgba(255,255,255,0.7)"/>
+  
+  <!-- Irises -->
+  <circle cx="165" cy="205" r="14" fill="url(#eyeGlow)"/>
+  <circle cx="245" cy="205" r="14" fill="url(#eyeGlow)">
+    <animate attributeName="r" values="14;15;14" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Pupils -->
+  <circle cx="167" cy="207" r="7" fill="#0f172a"/>
+  <circle cx="247" cy="207" r="7" fill="#0f172a"/>
+  
+  <!-- Eye shine -->
+  <circle cx="160" cy="198" r="4" fill="white"/>
+  <circle cx="240" cy="198" r="4" fill="white"/>
+  
+  <!-- AI indicator - subtle temple dot -->
+  <circle cx="275" cy="175" r="4" fill="#22d3ee">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Nose -->
+  <path d="M200 215 Q195 240 190 255 Q200 265 210 255" fill="none" stroke="#d8b4fe" stroke-width="2" stroke-linecap="round"/>
+  <path d="M195 220 Q200 225 205 220" fill="none" stroke="#fbcfe8" stroke-width="1.5"/>
+  
+  <!-- Nose highlight -->
+  <ellipse cx="200" cy="245" rx="6" ry="4" fill="rgba(255,255,255,0.4)"/>
+  
+  <!-- Lips - natural smile -->
+  <path d="M165 285 Q200 305 235 285" fill="#f472b6" stroke="#ec4899" stroke-width="1"/>
+  <path d="M165 285 Q200 300 235 285" fill="#f9a8d4"/>
+  
+  <!-- Lip highlight -->
+  <path d="M180 288 Q200 295 220 288" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+  
+  <!-- Subtle blush -->
+  <ellipse cx="125" cy="255" rx="18" ry="10" fill="#f9a8d4" opacity="0.25"/>
+  <ellipse cx="275" cy="255" rx="18" ry="10" fill="#f9a8d4" opacity="0.25"/>
+  
+  <!-- Glasses (optional - removing for cleaner look) -->
+  
+  <!-- Tech elements - holographic data -->
+  <g opacity="0.4">
+    <rect x="50" y="180" width="30" height="2" rx="1" fill="#22d3ee">
+      <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="55" y="190" width="20" height="2" rx="1" fill="#22d3ee" opacity="0.5"/>
+    
+    <rect x="320" y="180" width="30" height="2" rx="1" fill="#22d3ee">
+      <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="325" y="190" width="20" height="2" rx="1" fill="#22d3ee" opacity="0.5"/>
+  </g>
+  
+  <!-- Sparkles -->
+  <g fill="#fef08a">
+    <circle cx="70" cy="140" r="3" opacity="0.6">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="330" cy="120" r="2" opacity="0.5">
+      <animate attributeName="opacity" values="0.2;0.7;0.2" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="55" cy="250" r="2" opacity="0.4">
+      <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

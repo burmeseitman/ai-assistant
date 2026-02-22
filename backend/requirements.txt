@@ -1,0 +1,12 @@
+pyTelegramBotAPI
+requests
+google-generativeai
+openai
+fastapi
+uvicorn
+python-multipart
+python-dotenv
+sqlalchemy
+psycopg2-binary
+pgvector
+supabase
