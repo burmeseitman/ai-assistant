@@ -1,15 +1,13 @@
-# Multi-Platform AI Assistant (Facebook, Telegram & Web)
+# Personal AI Assistant (Web Interface)
 
-A versatile, enterprise-grade AI assistant featuring **Facebook Messenger**, **Telegram Bot**, and a **Modern Web Interface**. Supporting multiple AI backends including **Google Gemini 1.5 Flash**, **OpenAI GPT-4**, and **Local Ollama** models.
+A versatile, enterprise-grade AI assistant featuring a **Modern Web Interface**. Supporting multiple AI backends including **Google Gemini 1.5 Flash**, **OpenAI**, and **Local Ollama** models.
 
 ## 🚀 Key Features
 
 - **Flexible AI Providers**: Switch between Gemini, OpenAI, or Local Ollama via a single environment variable.
-- **Facebook Messenger Integration**: Full Webhook support with secure token verification.
-- **Telegram Bot Support**: Real-time interaction via Telegram.
+- **Supabase Authentication**: Secure registration and login flow using Supabase JWTs.
 - **Contextual Retrieval (RAG)**: Uses local `data/posts.json` to provide expert answers based on your specific content.
-- **Burmese Localization**: Pre-configured with a professional "Technology Software Engineer" personality in Burmese.
-- **Industrial Dashboard**: Modern Web UI for chat and system settings.
+- **Industrial Dashboard**: Modern glassmorphic Web UI for chatting with the AI.
 
 ## 📁 Project Structure
 
@@ -33,7 +31,6 @@ This project is structured as a multi-container stack with a decoupled frontend 
 - Docker & Docker Compose.
 - API Keys for your chosen provider (Gemini or OpenAI).
 - **Supabase Account**: A Supabase project URL and Anon Key are required for the Authentication layer.
-- Facebook Developer App (for Messenger Webhook).
 
 ### 2. Configuration
 Create your `backend/.env` file based on `backend/.env.example`:
@@ -45,11 +42,6 @@ AI_PROVIDER=gemini
 GEMINI_API_KEY=your_key
 OPENAI_API_KEY=your_key
 OPENAI_MODEL_NAME=gpt-4-turbo-preview
-
-# Facebook & Telegram
-FB_PAGE_ACCESS_TOKEN=your_token
-FB_VERIFY_TOKEN=your_verify_token
-TELEGRAM_BOT_TOKEN=your_token
 
 # Supabase Auth
 SUPABASE_URL=your_project_url
@@ -70,7 +62,6 @@ Run with Docker (3-container stack: Frontend Nginx + Backend API + Ollama):
 docker compose up -d --build
 ```
 * The web UI is automatically exposed on `http://localhost/`.
-* For Facebook Webhook, map port 8000 via a secure HTTPS tunnel (e.g., `ngrok`).
 
 ## 📜 License
 MIT License - see [LICENSE](LICENSE) for details.
